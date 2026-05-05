@@ -80,7 +80,7 @@ main {
   color: rgb(106, 149, 88);
 }
 
-.hero p{
+.hero p {
   font-size: 20px;
   font-weight: 400;
 }
@@ -132,15 +132,13 @@ button {
   gap: 15px; /* increase from 12px */
 }
 
-.moodform-container h2{
+.moodform-container h2 {
   font-size: 40px;
   font-weight: 800;
   margin-bottom: 15px;
   color: rgb(106, 149, 88);
   text-align: center;
 }
-
-
 
 label {
   font-size: 30px;
