@@ -32,9 +32,6 @@ if (form) {
     alert("Entry saved!");
 
     form.reset();
-
-    // 👉 redirect to dashboard
-    window.location.href = "./dashboard.html";
   });
 }
 
