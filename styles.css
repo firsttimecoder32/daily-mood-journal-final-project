@@ -179,14 +179,12 @@ footer {
   header h1 {
     font-size: 32px;
   }
-  
 
   .hero {
     max-width: 90%;
   }
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   header {
     flex-direction: column;
