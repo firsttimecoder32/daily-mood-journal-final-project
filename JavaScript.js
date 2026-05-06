@@ -25,7 +25,7 @@ if (form) {
 
     let entries = JSON.parse(localStorage.getItem("moodEntries")) || [];
 
-    entries.push(entry);
+    entries.unshift(entry);
 
     localStorage.setItem("moodEntries", JSON.stringify(entries));
 
