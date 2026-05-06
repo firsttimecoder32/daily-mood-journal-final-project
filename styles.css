@@ -1,6 +1,9 @@
 body {
+  background-image: url("./background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   margin: 0;
-  background-color: #f4fff6;
   color: #333;
   font-family: "Arapey", serif;
   min-height: 100vh;
@@ -22,8 +25,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
-  background-color: white;
-  border-bottom: 2px solid #e8f5e9;
+  background-color: transparent;
 }
 
 header h1 {
@@ -99,10 +101,14 @@ button:hover {
 }
 
 .moodform-container {
+  background-image: url("./form.background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 18px;
   max-width: 600px;
   margin: 20px auto;
   padding: 25px;
-  background: white;
   border-radius: 18px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
@@ -139,12 +145,11 @@ textarea {
 }
 
 .success {
-  background: rgb(45, 90, 60);
-  color: white;
+  color: black;
   padding: 15px;
   border-radius: 12px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 400px;
 }
 
 #entries {
@@ -170,7 +175,7 @@ footer {
   margin-top: auto;
   padding: 20px;
   text-align: center;
-  background: #f4fff6;
+  background: transparent;
   border-top: 1px solid #e0f2e9;
   color: rgb(45, 90, 60);
   font-weight: 600;
