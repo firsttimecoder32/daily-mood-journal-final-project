@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #f4fff6; /* soft green-white */
+  background-color: #f4fff6;
   color: #333;
   font-family: "Arapey", serif;
   min-height: 100vh;
@@ -10,12 +10,10 @@ body {
 
 main {
   flex: 1;
-}
-
-.logo {
-  display: block;
-  width: 200px;
-  height: 100px;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  padding-bottom: 60px;
 }
 
 header {
@@ -32,15 +30,14 @@ header h1 {
   color: rgb(106, 149, 88);
 }
 
-header a {
-  text-decoration: none;
-  color: inherit;
+.logo {
+  width: 200px;
+  height: 100px;
 }
 
 nav {
   display: flex;
   gap: 12px;
-  list-style: none;
 }
 
 nav a {
@@ -49,7 +46,7 @@ nav a {
   font-size: 20px;
   padding: 10px;
   border-radius: 6px;
-  font-weight: 600px;
+  font-weight: 600;
 }
 
 nav a:hover {
@@ -57,32 +54,22 @@ nav a:hover {
   text-decoration: underline;
 }
 
-main {
-  width: 90%;
-  max-width: 100%;
-  margin: auto;
-}
-
 .hero {
-  padding: 20px 0; /* space inside */
-  margin: 20px auto; /* space around */
+  padding: 20px;
+  margin: 20px auto;
   text-align: center;
   background-color: white;
   border-radius: 16px;
   max-width: 800px;
-  height: 70vh;
 }
 
 .hero h2 {
   font-size: 40px;
-  font-weight: 800;
-  margin-bottom: 15px;
   color: rgb(106, 149, 88);
 }
 
 .hero p {
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 18px;
 }
 
 .button,
@@ -101,7 +88,7 @@ button {
   cursor: pointer;
   transition: 0.2s ease;
   text-decoration: none;
-  color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .button:hover,
@@ -110,15 +97,8 @@ button:hover {
   transform: scale(1.02);
 }
 
-.button,
-button {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
 .moodform-container {
-  width: 100%;
   max-width: 600px;
-  height: 70vh;
   margin: 20px auto;
   padding: 25px;
   background: white;
@@ -129,19 +109,17 @@ button {
 #moodform {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* increase from 12px */
+  gap: 15px;
 }
 
 .moodform-container h2 {
-  font-size: 40px;
-  font-weight: 800;
-  margin-bottom: 15px;
-  color: rgb(106, 149, 88);
   text-align: center;
+  font-size: 36px;
+  color: rgb(106, 149, 88);
 }
 
 label {
-  font-size: 30px;
+  font-size: 18px;
   font-weight: 600;
   color: rgb(106, 149, 88);
 }
@@ -153,68 +131,83 @@ textarea {
   border-radius: 12px;
   border: 1px solid #ddd;
   font-size: 14px;
-  outline: none;
-  transition: 0.2s;
 }
 
-select:focus,
-textarea:focus {
-  border-color: #2e7d32;
-  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+#message {
+  margin-top: 20px;
 }
 
-button {
-  margin-top: 2px;
-  margin-bottom: 40px;
-}
-
-footer {
-  width: 100%;
-  margin-top: 40px;
-  padding: 20px 10px;
+.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 15px;
+  border-radius: 12px;
   text-align: center;
-  background: #f4fff6; /* soft green background */
-  border-top: 1px solid #e0f2e9;
-  font-size: 13px;
-  color: #555;
-}
-
-footer p {
-  margin: 5px 0;
-  font-size: 20px;
   font-weight: 600;
-  color: rgb(106, 149, 88);
 }
 
-.dashboard-container {
-  width: 100%;
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 25px;
-  background: white;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.dashboard-container h2 {
-  text-align: center;
-  font-size: 36px;
-  color: rgb(106, 149, 88);
-  margin-bottom: 20px;
+#entries {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .entry-card {
   background: white;
   border-radius: 16px;
   padding: 15px;
-  margin-bottom: 15px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0f2e9;
+  transition: transform 0.2s ease;
 }
 
-#entries {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.entry-card:hover {
+  transform: translateY(-3px);
 }
 
+footer {
+  margin-top: auto;
+  padding: 20px;
+  text-align: center;
+  background: #f4fff6;
+  border-top: 1px solid #e0f2e9;
+  color: rgb(106, 149, 88);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  .hero {
+    max-width: 90%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero {
+    padding: 15px;
+  }
+
+  .logo {
+    width: 150px;
+    height: auto;
+  }
+}
