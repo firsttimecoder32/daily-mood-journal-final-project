@@ -35,7 +35,8 @@ header h1 {
 
 .logo {
   width: 200px;
-  height: 100px;
+  height: 200px;
+  border-radius: 50%;
 }
 
 nav {
