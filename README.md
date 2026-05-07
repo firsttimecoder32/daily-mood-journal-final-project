@@ -12,8 +12,8 @@ The main goal of this project is to help users build emotional awareness by cons
 
 The user is first introduced to a Home Page (index.html) where they are welcomed and given two options:
 
-- Start a new mood entry
-- View the dashboard directly
+- Start a new mood entry  
+- View the dashboard directly  
 
 If the user selects Start Entry, they are taken to a form where they select their mood and write a reflection.
 
@@ -27,13 +27,15 @@ The Dashboard page retrieves stored entries and displays them dynamically as car
 
 New entries appear at the top of the dashboard.
 
+Each entry also includes a delete button that allows the user to remove individual mood entries. When an entry is deleted, it is removed from both the dashboard and localStorage.
+
 ---
 
 ## Author Information
 
-Name: Warda Haithar
-Email: wardaibrahim200714@gmail.com
-GitHub: https://github.com/firsttimecoder32/daily-mood-journal-final-project
+Name: Warda Haithar  
+Email: wardaibrahim200714@gmail.com  
+GitHub: https://github.com/firsttimecoder32/daily-mood-journal-final-project  
 
 ---
 
@@ -48,8 +50,10 @@ A text editor (optional)
 
 Clone or download the project:
 
+```bash
 git clone https://github.com/firsttimecoder32/daily-mood-journal-final-project
 cd daily-mood-journal
+```
 
 ### Open the application
 
@@ -59,51 +63,44 @@ No server setup is required.
 
 ### Using the application
 
-- Open the Home Page
-- Choose to start an entry or view dashboard
-- Fill in the mood form and save entry
-- View saved entries on dashboard
+- Open the Home Page  
+- Choose to start an entry or view dashboard  
+- Fill in the mood form and save entry  
+- View saved entries on dashboard  
+- Delete entries if needed using the delete button  
 
 ---
 
 ## BDD (Behavior Driven Development)
 
-Feature: User can track and view mood entries
+Feature: User can track, view, and manage mood entries
 
 Scenario 1: User accesses the application  
 Given the user opens the application  
 When the Home Page loads  
-Then the user is welcomed and presented with two options:
-
-- Start a new mood entry
-- View the dashboard directly
+Then the user is welcomed and presented with two options
 
 Scenario 2: User saves a mood entry  
 Given the user is on the entry page  
 When they select a mood and write a reflection  
 And click "Save Entry"  
 Then the entry is saved in localStorage  
-And a success message is displayed confirming that the entry has been saved  
-And the user is given a button to view the dashboard
+And a success message is displayed  
+And the user is given a button to view the dashboard  
 
-Scenario 3: User navigates to dashboard after saving  
-Given the user has successfully saved an entry  
-When they click "View Dashboard"  
-Then they are taken to the dashboard page  
-And their saved entries are displayed
-
-Scenario 4: User submits empty form  
-Given the user is on the entry page  
-When they submit without filling required inputs  
-Then an error message is shown prompting them to complete the form
-
-Scenario 5: User views dashboard  
+Scenario 3: User views dashboard  
 Given the user has saved entries  
 When they open the dashboard page  
 Then all saved entries are displayed as cards  
-And each entry shows mood, reflection, and date
+And each entry shows mood, reflection, and date  
 
-Scenario 6: No entries exist  
+Scenario 4: User deletes an entry  
+Given the user is on the dashboard page  
+When they click the delete button on an entry  
+Then that entry is removed from the dashboard  
+And it is deleted from localStorage  
+
+Scenario 5: No entries exist  
 Given no entries have been saved  
 When the dashboard is opened  
 Then a message is displayed saying "No entries yet"
@@ -117,7 +114,7 @@ CSS: Styling and responsive design
 JavaScript: Application logic  
 localStorage: Data storage  
 DOM Manipulation: Dynamic rendering  
-Event Listeners: Form handling
+Event Listeners: Form handling  
 
 ---
 
@@ -125,13 +122,13 @@ Event Listeners: Form handling
 
 the-daily-mood-journal/
 
-index.html Home page  
-entry.html Mood entry form  
-dashboard.html Displays entries  
-styles.css Styling  
-JavaScript.js Logic  
-logo1.png Project logo  
-README.md Documentation
+index.html - Home page  
+entry.html - Mood entry form  
+dashboard.html - Displays entries  
+styles.css - Styling  
+JavaScript.js - Logic  
+logo1.png - Project logo  
+README.md - Documentation  
 
 ---
 
@@ -141,9 +138,9 @@ Entries are stored using localStorage.
 
 Each entry contains:
 
-- mood
-- note
-- date
+- mood  
+- note  
+- date  
 
 Save example:
 
@@ -157,20 +154,21 @@ JSON.parse(localStorage.getItem("moodEntries")) || [];
 
 ## Features
 
-- Mood selection system
-- Reflection input
-- Home page navigation system
-- localStorage persistence
-- Dashboard display of entries
-- Success message after saving entry
-- Responsive design
+- Mood selection system  
+- Reflection input  
+- Home page navigation system  
+- localStorage persistence  
+- Dashboard display of entries  
+- Success message after saving entry  
+- Responsive design  
+- Delete functionality for individual entries  
 
 ---
 
 ## Contact Information
 
-Email: wardaibrahim200714@gmail.com
-GitHub: https://github.com/firsttimecoder32/daily-mood-journal-final-project
+Email: wardaibrahim200714@gmail.com  
+GitHub: https://github.com/firsttimecoder32/daily-mood-journal-final-project  
 
 ---
 
