@@ -178,6 +178,26 @@ h2 {
   transform: translateY(-3px);
 }
 
+.delete-btn {
+  display: inline-block;
+  width: auto;
+  padding: 8px 14px;
+  margin-top: 12px;
+  background-color: rgb(180, 40, 40);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: rgb(140, 20, 20);
+  transform: scale(1.03);
+}
+
 footer {
   margin-top: auto;
   padding: 20px;

@@ -16,11 +16,10 @@ if (form) {
     // Validation: ensure both fields are filled
     if (!mood || !note) {
       alert("Please fill in all fields");
-      return; // Stop execution if validation fails
+      return;
     }
 
-    // Validation: ensure note has at least 3 characters (after removing spaces)
-    // .trim removes extra space in the beginning and the end of the string.
+    // Validation: ensure note has at least 3 characters
     if (note.trim().length < 3) {
       alert("Please write a slightly longer reflection");
       return;
@@ -28,62 +27,88 @@ if (form) {
 
     // Create a new mood entry object
     const entry = {
-      mood: mood, // selected mood
-      note: note, // user's reflection
-      date: new Date().toLocaleString(), // current date and time
+      mood: mood,
+      note: note,
+      date: new Date().toLocaleString(),
     };
 
-    // Retrieve existing entries from localStorage (or create empty array if none)
+    // Retrieve existing entries from localStorage
     let entries = JSON.parse(localStorage.getItem("moodEntries")) || [];
 
-    // Add the new entry to the beginning of the array (latest first)
+    // Add newest entry to the top
     entries.unshift(entry);
 
     // Save updated entries back to localStorage
     localStorage.setItem("moodEntries", JSON.stringify(entries));
 
-    // Display success message ONLY if message container exists
+    // Display success message
     if (message) {
       message.innerHTML = `
-          <p class="success">
-            Entry saved successfully! You can now view your dashboard to see your previous entries.
-          </p>
+        <p class="success">
+          Entry saved successfully! You can now view your dashboard to see your previous entries.
+        </p>
 
-          <a href="./dashboard.html" class="button">Go to Dashboard</a>
-        `;
+        <a href="./dashboard.html" class="button">
+          Go to Dashboard
+        </a>
+      `;
     }
 
-    // Clear the form inputs after submission
+    // Clear form fields
     form.reset();
   });
 }
 
-// Select the container where entries will be displayed (dashboard page)
+// Select the dashboard container
 const entriesContainer = document.querySelector("#entries");
 
-// Check if the container exists (so this runs only on dashboard page)
+// Run only if dashboard exists
 if (entriesContainer) {
-  // Get saved entries from localStorage
-  const entries = JSON.parse(localStorage.getItem("moodEntries")) || [];
+  // Retrieve saved entries
+  let entries = JSON.parse(localStorage.getItem("moodEntries")) || [];
 
-  // If no entries exist, show a message
+  // If no entries exist
   if (entries.length === 0) {
     entriesContainer.innerHTML = "<p>No entries yet.</p>";
   } else {
-    let allCards = ""; // Will store all entry HTML
+    let allCards = "";
 
-    // Loop through each entry and create a card for it
-    entries.forEach(function (entry) {
+    // Generate dashboard cards
+    entries.forEach(function (entry, index) {
       allCards += `
-          <div class="entry-card">
-            <h3>${entry.mood}</h3> <!-- Display mood -->
-            <p>${entry.note}</p> <!-- Display note -->
-            <small>${entry.date}</small> <!-- Display date -->
-          </div>
-        `;
+        <div class="entry-card">
+          <h3>${entry.mood}</h3>
+          <p>${entry.note}</p>
+          <small>${entry.date}</small>
+
+          <button class="delete-btn" data-index="${index}">
+            Delete Entry
+          </button>
+        </div>
+      `;
     });
 
-    // Insert all generated cards into the page
+    // Display all cards
     entriesContainer.innerHTML = allCards;
+
+    // Select all delete buttons
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+
+    // Add click event to each button
+    deleteButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        // Get the selected entry index
+        const index = button.dataset.index;
+
+        // Remove the selected entry
+        entries.splice(index, 1);
+
+        // Save updated entries
+        localStorage.setItem("moodEntries", JSON.stringify(entries));
+
+        // Reload dashboard
+        location.reload();
+      });
+    });
   }
 }
