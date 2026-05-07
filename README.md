@@ -35,7 +35,7 @@ Each entry also includes a delete button that allows the user to remove individu
 
 Name: Warda Haithar  
 Email: wardaibrahim200714@gmail.com  
-GitHub: https://github.com/firsttimecoder32/daily-mood-journal-final-project  
+GitHub: firsttimecoder32 
 
 ---
 
